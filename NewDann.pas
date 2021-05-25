@@ -82,6 +82,7 @@ type
     lblWikiThreshold: TLinkLabel;
     edtMSEDifference: TEdit;
     lblMEBreak: TLabel;
+    dlgOpenStructure: TFileOpenDialog;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnCreateNNClick(Sender: TObject);
@@ -170,10 +171,12 @@ procedure TfrmNewDann.btnLoadClick(Sender: TObject);
 var
   Filename: string;
 begin
-  Filename := ChangeFileExt(ParamStr(0), '.XML');
-  if FileExists(Filename) then
+//  Filename := ChangeFileExt(ParamStr(0), '.XML');
+//  if FileExists(Filename) then
+  if dlgOpenStructure.Execute then
   begin
-    FNN.LoadStructure(Filename);
+//    FNN.LoadStructure(Filename);
+    FNN.LoadStructure(dlgOpenStructure.FileName);
     Draw;
   end
   else

@@ -287,13 +287,78 @@ object frmNewDann: TfrmNewDann
           OnClick = btnExportStructureClick
         end
       end
+      object tsData: TTabSheet
+        Caption = 'Data'
+        ImageIndex = 2
+        ExplicitLeft = 2
+        object lblSeparator: TLabel
+          Left = 136
+          Top = 8
+          Width = 48
+          Height = 26
+          Caption = 'CSV'#13#10'Separator'
+        end
+        object lblDataInfo: TLabel
+          Left = 24
+          Top = 58
+          Width = 3
+          Height = 13
+        end
+        object lblDecimalSeparator: TLabel
+          Left = 216
+          Top = 8
+          Width = 48
+          Height = 26
+          Caption = 'Decimal-'#13#10'Separator'
+        end
+        object mmoData: TMemo
+          Left = 24
+          Top = 75
+          Width = 313
+          Height = 214
+          Lines.Strings = (
+            '#?;1; 1; 0'
+            '#*?;0; 1; 1'
+            '1; 0; 1'
+            '#*?;0; 0; 0')
+          ScrollBars = ssBoth
+          TabOrder = 0
+          OnChange = mmoDataChange
+        end
+        object edtSeparator: TEdit
+          Left = 136
+          Top = 37
+          Width = 45
+          Height = 21
+          MaxLength = 3
+          TabOrder = 1
+          Text = ';'
+          OnChange = edtSeparatorChange
+        end
+        object btnLoadData: TButton
+          Left = 26
+          Top = 7
+          Width = 75
+          Height = 50
+          Caption = 'Load'#13#10'CSV Data'
+          TabOrder = 2
+          WordWrap = True
+          OnClick = btnLoadDataClick
+        end
+        object edtDecimalSeparator: TEdit
+          Left = 216
+          Top = 37
+          Width = 45
+          Height = 21
+          MaxLength = 1
+          TabOrder = 3
+          Text = '.'
+          OnChange = edtDecimalSeparatorChange
+        end
+      end
       object tsTrainNN: TTabSheet
         Caption = 'Train NN'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblError: TLabel
           Left = 162
           Top = 19
@@ -419,10 +484,6 @@ object frmNewDann: TfrmNewDann
       object tsTest: TTabSheet
         Caption = 'Test NN'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblTestResult: TLabel
           Left = 72
           Top = 112
@@ -444,78 +505,6 @@ object frmNewDann: TfrmNewDann
           Caption = 'Test NN'
           TabOrder = 0
           OnClick = btnTestClick
-        end
-      end
-      object tsData: TTabSheet
-        Caption = 'Data'
-        ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object lblSeparator: TLabel
-          Left = 136
-          Top = 8
-          Width = 48
-          Height = 26
-          Caption = 'CSV'#13#10'Separator'
-        end
-        object lblDataInfo: TLabel
-          Left = 24
-          Top = 58
-          Width = 3
-          Height = 13
-        end
-        object lblDecimalSeparator: TLabel
-          Left = 216
-          Top = 8
-          Width = 48
-          Height = 26
-          Caption = 'Decimal-'#13#10'Separator'
-        end
-        object mmoData: TMemo
-          Left = 24
-          Top = 75
-          Width = 313
-          Height = 214
-          Lines.Strings = (
-            '#?;1; 1; 0'
-            '#*?;0; 1; 1'
-            '1; 0; 1'
-            '#*?;0; 0; 0')
-          ScrollBars = ssBoth
-          TabOrder = 0
-          OnChange = mmoDataChange
-        end
-        object edtSeparator: TEdit
-          Left = 136
-          Top = 37
-          Width = 45
-          Height = 21
-          MaxLength = 3
-          TabOrder = 1
-          Text = ';'
-          OnChange = edtSeparatorChange
-        end
-        object btnLoadData: TButton
-          Left = 26
-          Top = 7
-          Width = 75
-          Height = 50
-          Caption = 'Load'#13#10'CSV Data'
-          TabOrder = 2
-          WordWrap = True
-          OnClick = btnLoadDataClick
-        end
-        object edtDecimalSeparator: TEdit
-          Left = 216
-          Top = 37
-          Width = 45
-          Height = 21
-          MaxLength = 1
-          TabOrder = 3
-          Text = '.'
-          OnChange = edtDecimalSeparatorChange
         end
       end
     end
@@ -547,85 +536,18 @@ object frmNewDann: TfrmNewDann
     ExplicitWidth = 323
     ExplicitHeight = 746
     inherited imgStructure: TImage32
-      Left = 0
-      Top = 129
       Width = 323
       Height = 617
-      Align = alClient
-      Bitmap.ResamplerClassName = 'TNearestResampler'
-      Bitmap.Data = {0000000000000000}
       BitmapAlign = baCenter
-      Scale = 1.000000000000000000
-      ScaleMode = smNormal
-      TabOrder = 0
       ExplicitWidth = 323
       ExplicitHeight = 617
     end
     inherited pnlMenu: TPanel
-      Left = 0
-      Top = 0
       Width = 323
-      Height = 129
-      Align = alTop
-      BevelOuter = bvNone
-      Caption = 'pnlMenu'
-      ShowCaption = False
-      TabOrder = 1
       ExplicitWidth = 323
       DesignSize = (
         323
         129)
-      inherited lblClickInfo: TLabel
-        Left = 23
-        Top = 30
-        Width = 150
-        Height = 13
-        Caption = 'Ctrl + Click -> select Nodelayer'
-      end
-      inherited chkWeights: TCheckBox
-        Left = 23
-        Top = 10
-        Width = 94
-        Height = 17
-        Caption = 'Draw Weights'
-        Checked = True
-        State = cbChecked
-        TabOrder = 0
-      end
-      inherited chkDrawValue: TCheckBox
-        Left = 123
-        Top = 10
-        Width = 75
-        Height = 17
-        Caption = 'Draw Value'
-        Checked = True
-        State = cbChecked
-        TabOrder = 1
-      end
-      inherited edtLine: TSpinEdit
-        Left = 204
-        Top = 8
-        Width = 75
-        Height = 22
-        MaxValue = 0
-        MinValue = 0
-        TabOrder = 2
-        Value = 2
-      end
-      inherited lstInfo: TListBox
-        Left = 23
-        Top = 48
-        Width = 458
-        Height = 75
-        Anchors = [akLeft, akTop, akRight, akBottom]
-        BevelInner = bvNone
-        BevelOuter = bvNone
-        BorderStyle = bsNone
-        ItemHeight = 13
-        Items.Strings = ()
-        ParentColor = True
-        TabOrder = 3
-      end
     end
   end
   object dlgData: TOpenTextFileDialog
@@ -641,5 +563,13 @@ object frmNewDann: TfrmNewDann
     Title = 'Save Structure'
     Left = 656
     Top = 608
+  end
+  object dlgOpenStructure: TFileOpenDialog
+    DefaultExtension = '*.XML'
+    FavoriteLinks = <>
+    FileTypes = <>
+    Options = []
+    Left = 632
+    Top = 512
   end
 end
