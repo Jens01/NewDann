@@ -198,7 +198,7 @@ procedure Register;
 
 implementation
 
-{.$R NiceChart.res}
+{ .$R NiceChart.res }
 
 uses
   ClipBrd;
@@ -945,6 +945,8 @@ begin
     end
     else
     begin
+      if n = 1 then
+        n := 2;
       Scale := w / (n - 1);
       dx    := 0;
     end;
