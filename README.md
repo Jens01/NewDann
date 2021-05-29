@@ -1,4 +1,5 @@
 # NewDann
 RPROP Neural Network with Delphi 
 
-![Create](/Image/Main-CreateNN1.png) 
+![Create NN](/Image/Main-CreateNN1.png) 
+![Load Data](/Image/Main-Data1.png) 
